@@ -21,7 +21,10 @@ jobs:
       uses: actions/setup-java@v3
       with:
         java-version: '11'
-        distribution: 'adopt'  # Specify the JDK distribution
+        distribution: 'adopt'
+
+    - name: Set Gradle wrapper permissions  # Add this step
+      run: chmod +x ./gradlew
 
     - name: Build with Gradle
       run: ./gradlew build
@@ -38,7 +41,7 @@ jobs:
       uses: actions/setup-java@v3
       with:
         java-version: '11'
-        distribution: 'adopt'  # Specify the JDK distribution
+        distribution: 'adopt'
 
     - name: Run tests with Gradle
       run: ./gradlew test
