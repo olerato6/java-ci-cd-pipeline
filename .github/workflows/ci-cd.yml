@@ -7,6 +7,7 @@ on:
   pull_request:
     branches:
       - main
+  workflow_dispatch:  # This allows manual triggering of the workflow
 
 jobs:
   build:
@@ -20,6 +21,7 @@ jobs:
       uses: actions/setup-java@v3
       with:
         java-version: '11'
+        distribution: 'adopt'  # Specify the JDK distribution
 
     - name: Build with Gradle
       run: ./gradlew build
@@ -36,6 +38,7 @@ jobs:
       uses: actions/setup-java@v3
       with:
         java-version: '11'
+        distribution: 'adopt'  # Specify the JDK distribution
 
     - name: Run tests with Gradle
       run: ./gradlew test
